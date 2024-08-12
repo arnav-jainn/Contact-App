@@ -2,13 +2,13 @@ import React from "react";
 import Navbar from "./components/Navbar";
 import { FaPlusCircle } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "./config/firebase";
+import ContactCard from "./components/ContactCard";
 
 const App = () => {
-  const [contact, setContacts] = useState([]);
+  const [contacts, setContacts] = useState([]);
 
   useEffect(() => {
     //perform network call
@@ -24,7 +24,9 @@ const App = () => {
           };
         });
         setContacts(contactsList);
-      } catch (error) {}
+      } catch (error) {
+        console.log(error);
+      }
     };
 
     getContacts();
@@ -42,6 +44,11 @@ const App = () => {
           />
         </div>
         <FaPlusCircle className="cursor-pointer text-4xl text-white" />
+      </div>
+      <div className="mt-4 gap-3 flex flex-col">
+        {contacts.map((contact) => (
+          <ContactCard key={contact.id} contact= {contact}/>
+        ))}
       </div>
     </div>
   );
