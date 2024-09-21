@@ -4,7 +4,7 @@ import { HiOutlineUserCircle } from "react-icons/hi";
 import { IoMdTrash } from "react-icons/io";
 import { RiEditCircleLine } from "react-icons/ri";
 import { db } from "../config/firebase";
-import AddUpdateContact from "./AddUpdateContact";
+import AddUpdateContact from "./4AddUpdateContact";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
@@ -32,7 +32,7 @@ const ContactCard = ({ contact }) => {
     <>
       <div
         key={contact.id}
-        className="bg-yellow flex items-center justify-between rounded-lg p-2"
+        className="bg-[#8dc6ff] flex items-center justify-between rounded-lg p-2"
       >
         <div className="flex gap-1">
           <HiOutlineUserCircle className="text-orange text-4xl" />

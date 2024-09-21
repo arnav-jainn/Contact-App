@@ -1,15 +1,15 @@
 import React from "react";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/1Navbar";
 import { FaPlusCircle } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
 import { useState, useEffect } from "react";
 import { collection, onSnapshot } from "firebase/firestore";
 import { db } from "./config/firebase";
-import ContactCard from "./components/ContactCard";
-import AddUpdateContact from "./components/AddUpdateContact";
+import ContactCard from "./components/2ContactCard";
+import AddUpdateContact from "./components/4AddUpdateContact";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import NotFoundContact from "./components/NotFoundContact";
+import NotFoundContact from "./components/5NotFoundContact";
 
 const App = () => {
   const [contacts, setContacts] = useState([]);
@@ -72,20 +72,21 @@ const App = () => {
 
   return (
     <>
-      <div className="mx-auto max-w-[370px] px-4">
+      <div className="mx-auto max-w-[370px] px-4 border border-2 border-[#e4f1fe] h-[95vh] rounded-xl m-4">
         <Navbar />
         <div className="flex gap-3">
           <div className="relative flex flex-grow items-center">
             <FiSearch className="absolute ml-1 text-3xl text-white" />
             <input
               onChange={filterContacts}
+              placeholder="Search Contact"
               type="text"
-              className="h-10 flex-grow rounded-md border border-white bg-transparent pl-9 text-white"
+              className="h-11 flex-grow rounded-md border border-white bg-transparent pl-9 text-white"
             />
           </div>
           <FaPlusCircle
             onClick={onOpen}
-            className="cursor-pointer text-4xl text-white"
+            className="cursor-pointer text-5xl text-white"
           />
         </div>
         <div className="mt-4 flex flex-col-reverse gap-3">
